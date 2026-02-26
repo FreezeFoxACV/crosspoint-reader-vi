@@ -225,10 +225,23 @@ void HomeActivity::render(Activity::RenderLock&&) {
                           recentBooks, selectorIndex, coverRendered, coverBufferStored, bufferRestored,
                           std::bind(&HomeActivity::storeCoverBuffer, this));
 
-  // Build menu items dynamically
-  std::vector<const char*> menuItems = {tr(STR_BROWSE_FILES), tr(STR_MENU_RECENT_BOOKS), tr(STR_FILE_TRANSFER),
-                                        tr(STR_SETTINGS_TITLE)};
-  std::vector<UIIcon> menuIcons = {Folder, Recent, Transfer, Settings};
+
+ // Build menu items dynamically
+std::vector<const char*> menuItems = {
+    tr(STR_BROWSE_FILES),
+    tr(STR_MENU_RECENT_BOOKS),
+    tr(STR_FILE_TRANSFER),
+    "News",
+    tr(STR_SETTINGS_TITLE)
+};
+
+std::vector<UIIcon> menuIcons = {
+    Folder,
+    Recent,
+    Transfer,
+    Newspaper,
+    Settings
+};
 
   if (hasOpdsUrl) {
     // Insert OPDS Browser after My Library
